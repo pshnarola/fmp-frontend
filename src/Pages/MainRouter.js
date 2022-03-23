@@ -1,32 +1,19 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import AdminLayout from "../Layout/AdminLayout";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-// const PmrOueres = React.lazy(() => import("../Containers/Pmr/Queues"));
-// const PmrRemaning = React.lazy(() => import("../Containers/Pmr/Remaning"));
-// const Dashboard = React.lazy(() => import("../Containers/Dashboard"));
+const HomePage = React.lazy(() => import("./HomePage"));
+const Services = React.lazy(() => import("./Services"));
+const Checkout = React.lazy(() => import("./Checkout"));
 
 export default function MainRouter() {
 	return (
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route
-						path='/'
-						element={
-							<main className='p-3'>
-								<p> 404xvxcvxcve!</p>
-							</main>
-						}
-					/>
-					<Route
-						path='*'
-						element={
-							<main className='p-3'>
-								<p> 404 There's nothing here!</p>
-							</main>
-						}
-					/>
+					<Route path='/' element={<HomePage />} />
+					<Route path='/services/:serviceId' element={<Services />} />
+					<Route path='/checkout' element={<Checkout />} />
+					<Route path='*' element={<Navigate replace to='/' />} />
 				</Routes>
 			</BrowserRouter>
 		</>
