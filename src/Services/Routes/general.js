@@ -4,8 +4,8 @@ export const getAllServices = {
 };
 
 export const getAllServiceTires = {
-	method: "POST",
-	url: "/api/service-tiers",
+	method: "GET",
+	url: "/api/services",
 };
 
 export const postUserForm = {

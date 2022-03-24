@@ -28,7 +28,7 @@ const HomePage = () => {
 										<p className='card-text'>{service.description}</p>
 									</div>
 									<div className='card-footer bg-white border-0'>
-										<Link to={`/services/${service._id}`}>
+										<Link to={`/services/${service.slug}`}>
 											<button className='btn btn-secondary'>
 												View details »
 											</button>

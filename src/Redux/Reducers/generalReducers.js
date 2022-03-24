@@ -13,6 +13,7 @@ import {
 
 const initialState = {
 	isLoading: false,
+	isError: false,
 	isAlert: false,
 	message: "",
 	servicesData: [],
@@ -41,6 +42,7 @@ const generalReducer = (state = initialState, { type, payload }) => {
 				message: payload,
 				isAlert: false,
 				isLoading: false,
+				isError: true,
 			};
 
 		case GET_ALLSERVICES_SUCCESS:
@@ -55,6 +57,7 @@ const generalReducer = (state = initialState, { type, payload }) => {
 				...state,
 				servicesTiersData: payload,
 				isLoading: false,
+				isError: false,
 			};
 
 		case POST_USER_SERVICES_SUCCESS:

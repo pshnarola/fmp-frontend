@@ -10,13 +10,19 @@ const Services = () => {
 	let navigate = useNavigate();
 	let params = useParams();
 
-	const { servicesTiersData, isLoading } = useSelector(
+	const { servicesTiersData, isLoading, isError } = useSelector(
 		(state) => state.general
 	);
 
 	useEffect(() => {
 		dispatch(getServicesTiers(params.serviceId));
 	}, [dispatch, params]);
+
+	useEffect(() => {
+		if (isError) {
+			navigate("/", { replace: true });
+		}
+	}, [isError, navigate]);
 
 	const handleCheckout = (service) => {
 		const cartData = {
