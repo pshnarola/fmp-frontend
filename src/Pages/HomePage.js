@@ -21,7 +21,7 @@ const HomePage = () => {
 				) : (
 					servicesData.map((service) => {
 						return (
-							<div className='col-md-4'>
+							<div key={service._id} className='col-md-4'>
 								<div className='card h-100 border-0'>
 									<div className='card-body'>
 										<h2 className='card-title'>{service.name}</h2>
