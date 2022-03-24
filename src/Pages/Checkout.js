@@ -94,7 +94,7 @@ const Checkout = () => {
 								placeholder='name@example.com'
 								{...register("email", {
 									required: true,
-									pattern: /^\S+@\S+$/i,
+									pattern: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i,
 								})}
 							/>
 							{errors?.email?.type === "required" && (
