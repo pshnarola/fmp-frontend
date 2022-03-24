@@ -66,7 +66,7 @@ const Services = () => {
 													type='button'
 													onClick={() => handleCheckout(service)}
 													className='btn btn-lg btn-block btn-primary'>
-													Get started
+													Buy now
 												</button>
 											</div>
 										</div>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { postUserServices } from "./../Redux/Actions/generalActions";
 
 const Checkout = () => {
@@ -10,10 +11,17 @@ const Checkout = () => {
 		formState: { errors },
 	} = useForm();
 	const dispatch = useDispatch();
+	let navigate = useNavigate();
 
 	const { cartList, isLoading, isAlert } = useSelector(
 		(state) => state.general
 	);
+
+	useEffect(() => {
+		if (!cartList.serviceId) {
+			navigate("/", { replace: true });
+		}
+	}, [cartList, navigate]);
 
 	const onSubmit = (data) => {
 		let formData = data;
