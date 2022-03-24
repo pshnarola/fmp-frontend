@@ -36,15 +36,13 @@ export const getServices = () => {
 	};
 };
 
-export const getServicesTiers = (serviceId) => {
-	const data = { serviceId: serviceId };
+export const getServicesTiers = (serviceSlug) => {
+	let { url, method } = getAllServiceTires;
+	url = url + `/${serviceSlug}/service-tiers/`;
 	return async (dispatch) => {
 		try {
 			dispatch({ type: GET_ALLSERVICES_TIERS_REQUEST });
-			let response = await axios({
-				...getAllServiceTires,
-				data: data,
-			});
+			let response = await axios({ url, method });
 			dispatch({
 				type: GET_ALLSERVICES_TIERS_SUCCESS,
 				payload: response.data.data.serviceTiers,
